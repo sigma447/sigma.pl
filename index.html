@@ -23,3 +23,86 @@ async function pokazIP() {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>PHONK MODE</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+/* laser eyes */
+.eye {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: red;
+    border-radius: 50%;
+    top: 40%;
+    box-shadow: 0 0 50px red, 0 0 100px red;
+    animation: blink 0.2s infinite;
+}
+
+.eye.left { left: 35%; }
+.eye.right { right: 35%; }
+
+@keyframes blink {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* laser beam */
+.laser {
+    position: absolute;
+    width: 4px;
+    height: 100vh;
+    background: red;
+    left: 50%;
+    top: 0;
+    animation: move 0.5s infinite alternate;
+}
+
+@keyframes move {
+    from { transform: translateX(-200px); opacity: 0.5; }
+    to { transform: translateX(200px); opacity: 1; }
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>PHONK MODE ACTIVATED</h1>
+
+<button onclick="start()">START</button>
+
+<audio id="music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d0b5c6d1c7.mp3?filename=dark-phonk-ambient-112191.mp3" type="audio/mpeg">
+</audio>
+
+<div class="eye left"></div>
+<div class="eye right"></div>
+<div class="laser"></div>
+
+<script>
+function start() {
+    document.getElementById("music").play();
+}
+</script>
+
+</body>
+</html>
